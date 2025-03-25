@@ -12,7 +12,6 @@ class CityController extends Controller
     {
         try {
             $city = City::with('state')->where('state_id', $id)->get();
-            return $city;
             if (!$city) {
                 return response()->json(['message' => 'City not found'], 404);
             }
