@@ -23,6 +23,9 @@ class Employer extends Model
         'start_time',
         'end_time',
         'job_category',
+        'address',
+        'city',
+        'state'
     ];
 
     // The attributes that should be cast to native types.

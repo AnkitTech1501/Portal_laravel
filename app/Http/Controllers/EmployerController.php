@@ -21,6 +21,9 @@ class EmployerController extends Controller
                 'start_time' => 'required|string',
                 'end_time' => 'required|string',
                 'job_category' => 'required|string',
+                'address' => 'required|string',
+                'city' => 'required|string',
+                'state' => 'required|string'
             ]);
             $employerData = [
                 'title' => $validated['title'],
@@ -32,6 +35,9 @@ class EmployerController extends Controller
                 'start_time' => $validated['start_time'],
                 'end_time' => $validated['end_time'],
                 'job_category' => $validated['job_category'],
+                'address' => $validated['address'],
+                'city' => $validated['city'],
+                'state' => $validated['state'],
             ];
             $employer = Employer::create($employerData);
 
