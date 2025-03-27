@@ -23,7 +23,8 @@ class EmployerController extends Controller
                 'job_category' => 'required|string',
                 'address' => 'required|string',
                 'city' => 'required|string',
-                'state' => 'required|string'
+                'state' => 'required|string',
+                'employer_bond' => 'nullable|integer|default:NULL',
             ]);
             $employerData = [
                 'title' => $validated['title'],
@@ -38,7 +39,9 @@ class EmployerController extends Controller
                 'address' => $validated['address'],
                 'city' => $validated['city'],
                 'state' => $validated['state'],
+                'bond_id' => $validated['employer_bond']
             ];
+            // print_r($employerData);
             $employer = Employer::create($employerData);
 
             return response()->json([

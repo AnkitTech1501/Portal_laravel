@@ -25,7 +25,8 @@ class Employer extends Model
         'job_category',
         'address',
         'city',
-        'state'
+        'state',
+        'bond_id'
     ];
 
     // The attributes that should be cast to native types.
