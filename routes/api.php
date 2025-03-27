@@ -6,6 +6,7 @@ use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\StateController;
 use App\Http\Controllers\EmployerBondController;
+use App\Http\Controllers\JobCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,4 @@ Route::post('/employers', [EmployerController::class, 'store']);
 Route::get('/cities/{id}', [CityController::class, 'show']);
 Route::get('/states', [StateController::class, 'index']);
 Route::get('/employers_bond', [EmployerBondController::class, 'index']);
+Route::get('/job_categories', [JobCategoryController::class, 'index']);

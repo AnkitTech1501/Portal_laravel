@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EmployerBond extends Model
+class JobCategories extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'bond_duration',
-    ];
+    protected $table = 'job_categories';
+    protected $fillable = ['category_name'];
 }
