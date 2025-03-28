@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Models\Employer;
@@ -23,8 +22,13 @@ class EmployerController extends Controller
                 'address' => 'required|string',
                 'city' => 'required|string',
                 'state' => 'required|string',
-                'employer_bond' => 'nullable|integer|default:NULL',
+                'employer_bond' => 'nullable|integer', // Nullable but should be an integer if provided
+                'phone_number' => 'nullable|string', // Nullable but should be an integer if provided
+                'company_name' => 'nullable|string', // Nullable string
+                'food_allowance' => 'nullable|integer|in:0,1', // Nullable string
             ]);
+
+            // Set default values if the data is not provided
             $employerData = [
                 'title' => $validated['title'],
                 'name' => $validated['name'],
@@ -37,9 +41,13 @@ class EmployerController extends Controller
                 'address' => $validated['address'],
                 'city' => $validated['city'],
                 'state' => $validated['state'],
-                'bond_id' => $validated['employer_bond']
+                'bond_id' => $validated['employer_bond'] ?? null, // Default to null if not provided
+                'phone_number' => $validated['phone_number'] ?? null, // Default to null if not provided
+                'company_name' => $validated['company_name'] ?? null, // Default to null if not provided
+                'food_allowance' => $validated['food_allowance'] ?? 0, // Default to null if not provided
             ];
-            // print_r($employerData);
+
+            // Create the employer record
             $employer = Employer::create($employerData);
 
             return response()->json([
@@ -53,3 +61,4 @@ class EmployerController extends Controller
         }
     }
 }
+
