@@ -29,7 +29,8 @@ class Employer extends Model
         'bond_id',
         'phone_number',
         'company_name',
-        'food_allowance'
+        'food_allowance',
+        'travel_allowance'
     ];
 
     // The attributes that should be cast to native types.

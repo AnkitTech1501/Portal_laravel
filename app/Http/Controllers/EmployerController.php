@@ -22,10 +22,11 @@ class EmployerController extends Controller
                 'address' => 'required|string',
                 'city' => 'required|string',
                 'state' => 'required|string',
-                'employer_bond' => 'nullable|integer', // Nullable but should be an integer if provided
-                'phone_number' => 'nullable|string', // Nullable but should be an integer if provided
-                'company_name' => 'nullable|string', // Nullable string
-                'food_allowance' => 'nullable|integer|in:0,1', // Nullable string
+                'employer_bond' => 'nullable|integer',
+                'phone_number' => 'nullable|string',
+                'company_name' => 'nullable|string',
+                'food_allowance' => 'nullable|integer|in:0,1',
+                'travel_allowance' => 'nullable|integer|in:0,1',
             ]);
 
             // Set default values if the data is not provided
@@ -33,7 +34,7 @@ class EmployerController extends Controller
                 'title' => $validated['title'],
                 'name' => $validated['name'],
                 'type' => $validated['type'],
-                'salary_range' => $validated['salary_range'], // Save salary_range as JSON
+                'salary_range' => $validated['salary_range'],
                 'description' => $validated['description'],
                 'start_time' => $validated['start_time'],
                 'end_time' => $validated['end_time'],
@@ -41,10 +42,11 @@ class EmployerController extends Controller
                 'address' => $validated['address'],
                 'city' => $validated['city'],
                 'state' => $validated['state'],
-                'bond_id' => $validated['employer_bond'] ?? null, // Default to null if not provided
-                'phone_number' => $validated['phone_number'] ?? null, // Default to null if not provided
-                'company_name' => $validated['company_name'] ?? null, // Default to null if not provided
-                'food_allowance' => $validated['food_allowance'] ?? 0, // Default to null if not provided
+                'bond_id' => $validated['employer_bond'] ?? null,
+                'phone_number' => $validated['phone_number'] ?? null,
+                'company_name' => $validated['company_name'] ?? null,
+                'food_allowance' => $validated['food_allowance'] ?? 0,
+                'travel_allowance' => $validated['travel_allowance'] ?? 0,
             ];
 
             // Create the employer record
