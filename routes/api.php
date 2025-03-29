@@ -24,6 +24,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/employers', [EmployerController::class, 'store']);
+Route::get('/employers_show', [EmployerController::class, 'show']);
+Route::get('/employers_job', [EmployerController::class, 'created_job']);
+Route::get('/job_details/{id}', [EmployerController::class, 'job_details']);
 Route::get('/cities/{id}', [CityController::class, 'show']);
 Route::get('/states', [StateController::class, 'index']);
 Route::get('/employers_bond', [EmployerBondController::class, 'index']);

@@ -62,5 +62,18 @@ class EmployerController extends Controller
             ], 500);
         }
     }
+    public function show(){
+        $data = Employer::all();
+        return response()->json($data);
+    }
+    public function job_details($id){
+        $data = Employer::where('id' , $id)->first();
+        return response()->json($data);
+    }
+
+    public function created_job(){
+        $data = Employer::where('created_by' , '1')->get();
+        return response()->json($data);
+    }
 }
 
